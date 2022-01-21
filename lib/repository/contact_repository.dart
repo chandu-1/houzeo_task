@@ -39,7 +39,7 @@ class ContactRepository {
         .withConverter<ContactModel>(
             fromFirestore: (model, _) => ContactModel.fromMap(model.data()!),
             toFirestore: (model, _) => model.toMap())
-        .orderBy(Constants.firstName, descending: true)
+        .orderBy(Constants.firstName, descending: false)
         .snapshots()
         .map(
           (event) => event.docs.map((e) => e.data()).toList(),
@@ -54,7 +54,7 @@ class ContactRepository {
         .withConverter<ContactModel>(
             fromFirestore: (model, _) => ContactModel.fromMap(model.data()!),
             toFirestore: (model, _) => model.toMap())
-        .orderBy(Constants.firstName, descending: true)
+        .orderBy(Constants.firstName, descending: false)
         .snapshots()
         .map(
           (event) => event.docs.map((e) => e.data()).toList(),
